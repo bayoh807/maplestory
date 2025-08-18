@@ -435,6 +435,7 @@ public class MapleServerHandler extends IoHandlerAdapter implements MapleServerH
                 final StringBuilder sb = new StringBuilder("Received data 未處理 : ");
                 sb.append(tools.HexTool.toString((byte[]) message)).append("\n").append(tools.HexTool.toStringFromAscii((byte[]) message));
                 System.out.println(sb.toString());
+                System.out.println("message:" + message);
             }
         } catch (Exception e) {
             FileoutputUtil.outputFileError(FileoutputUtil.PacketEx_Log, e);
