@@ -34,16 +34,21 @@ services:
 
   # MapleStory 遊戲服務器
   maplestory:
-    build: .
+    build:
+      context: .
+      dockerfile: Dockerfile
     container_name: maplestory_server
     depends_on:
       - mysql
     ports:
       - "8484:8484"
-      - "7575:7575"
-    volumes:
-      - ./logs:/maplestory/logs
-      - ./scripts:/maplestory/scripts
+      - "8586:8586"
+      - "8588:8588"
+      - "8587:8587"
+      - "8596:8596"
+#    volumes:
+#      - ./Logs:/maplestory/logs
+#      - ./scripts:/maplestory/scripts
       # - ./wz:/maplestory/wz
     environment:
       - DB_HOST=mysql
@@ -111,16 +116,16 @@ services:
 
 
   # Adminer (phpMyAdmin 的輕量替代品，原生支援 ARM64)
-  adminer:
-    image: adminer:4.8.1
-    container_name: maplestory_adminer
-    depends_on:
-      - mysql
-    ports:
-      - "8080:8080"
-    restart: unless-stopped
-    environment:
-      ADMINER_DEFAULT_SERVER: mysql
+#  adminer:
+#    image: adminer:4.8.1
+#    container_name: maplestory_adminer
+#    depends_on:
+#      - mysql
+#    ports:
+#      - "8080:8080"
+#    restart: unless-stopped
+#    environment:
+#      ADMINER_DEFAULT_SERVER: mysql
 
 volumes:
   mysql_data:

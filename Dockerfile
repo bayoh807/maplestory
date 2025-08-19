@@ -82,7 +82,7 @@ RUN ls -la && echo "Checking for server.jar:" && ls -la server.jar 2>/dev/null |
 # COPY lib/ lib/
 # COPY wz/ /maplestory/wz/
 # 暴露端口
-EXPOSE 8484 7575 
+EXPOSE 8484 8586 8588 8587 8596
 
 # 啟動命令 (注意：請確認 MainClass 名稱是否正確)
 # CMD ["sh", "-c", "java -server -Xmx1024m -Xms512m -cp .:lib/*:JarLib/*:dist/lib/*:server.jar server.swing.WvsCenter"]
