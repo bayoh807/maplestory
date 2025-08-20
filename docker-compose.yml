@@ -16,7 +16,7 @@ services:
   #   restart: unless-stopped
   #   command: --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
   mysql:
-    image: mysql:5.7
+    image: mysql:8.4.6
     platform: linux/amd64
     container_name: mysql
     environment:
@@ -43,8 +43,8 @@ services:
     ports:
       - "8484:8484"
       - "8586:8586"
-      - "8588:8588"
       - "8587:8587"
+      - "8588:8588"
       - "8596:8596"
 #    volumes:
 #      - ./Logs:/maplestory/logs

@@ -63,12 +63,14 @@ RUN chmod +x *.sh 2>/dev/null || true
 # 創建必要的目錄
 RUN mkdir -p logs lib
 
-# 加入 MySQL Connector
-# ADD https://repo1.maven.org/maven2/mysql/mysql-connector-java/5.1.49/mysql-connector-java-5.1.49.jar lib/mysql-connector-java.jar
-# RUN wget https://repo1.maven.org/maven2/mysql/mysql-connector-java/5.1.49/mysql-connector-java-5.1.49.jar -O mysql-connector-java.jar
-# RUN wget https://repo1.maven.org/maven2/mysql/mysql-connector-java/5.1.49/mysql-connector-java-5.1.49.jar -O lib/mysql-connector-java.jar
-RUN wget https://repo1.maven.org/maven2/mysql/mysql-connector-java/5.1.49/mysql-connector-java-5.1.49.jar \
-    -O lib/mysql-connector-java.jar
+
+#RUN wget https://repo1.maven.org/maven2/mysql/mysql-connector-java/5.1.49/mysql-connector-java-5.1.49.jar \
+#    -O lib/mysql-connector-java.jar
+
+RUN wget https://repo1.maven.org/maven2/com/mysql/mysql-connector-j/8.0.33/mysql-connector-j-8.0.33.jar -O lib/mysql-connector-java.jar
+
+
+
 
 RUN apt-get update && apt-get install -y \
     wget \
@@ -82,7 +84,7 @@ RUN ls -la && echo "Checking for server.jar:" && ls -la server.jar 2>/dev/null |
 # COPY lib/ lib/
 # COPY wz/ /maplestory/wz/
 # 暴露端口
-EXPOSE 8484 8586 8588 8587 8596
+EXPOSE 8484 8586 8587 8588 8596
 
 # 啟動命令 (注意：請確認 MainClass 名稱是否正確)
 # CMD ["sh", "-c", "java -server -Xmx1024m -Xms512m -cp .:lib/*:JarLib/*:dist/lib/*:server.jar server.swing.WvsCenter"]

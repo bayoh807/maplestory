@@ -25,9 +25,8 @@ SET time_zone = "+00:00";
 --
 -- 資料表結構 `accounts`
 --
-
 CREATE TABLE `accounts` (
-                            `id` int(11) NOT NULL,
+                            `id` int(11) NOT NULL AUTO_INCREMENT,
                             `name` varchar(30) NOT NULL DEFAULT '',
                             `password` varchar(128) NOT NULL DEFAULT '',
                             `salt` varchar(32) DEFAULT NULL,
@@ -57,7 +56,6 @@ CREATE TABLE `accounts` (
                             `expiration` timestamp NULL DEFAULT NULL,
                             PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=big5 ROW_FORMAT=DYNAMIC;
-
 
 -- --------------------------------------------------------
 
